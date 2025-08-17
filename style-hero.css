@@ -5,9 +5,9 @@
   --font-hero: #2d2e5d;
   --font-damage: #c83b1d;
   --font-main: #543524;
-  --font-h2: 30px;
-  --font-common: 18px;
-}
+  --font-win: #244c3f;
+  --font-lose: #8f3c3d;
+ }
 
 * {
   margin: 0;
@@ -58,7 +58,20 @@ a {
 }
 
 h1 {
-  font-size: 70px;
+  font-size: 60px;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+h3 {
+    font-size: 22px;
+}
+
+p {
+    font-size: 18px;
+    letter-spacing: 1.5;
 }
 
 a:hover {
@@ -82,14 +95,23 @@ header .wrapper_container {
   gap: 20px;
 }
 
-#main_section {
-   width: 100%;
-    height: 900px;
+#hero {
     display: flex;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    overflow: auto;
 }
 
+.about_hero {  
+ max-width: 500px;
+  margin: 15px auto;
+  text-align:start;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
 
+#wins {
+    color: var(--font-win);
+}
+
+#loses {
+    color: var(--font-lose);
+}

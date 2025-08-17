@@ -5,7 +5,6 @@
   --font-hero: #2d2e5d;
   --font-damage: #c83b1d;
   --font-main: #543524;
-  --font-h2: 30px;
   --font-common: 18px;
 }
 
@@ -58,7 +57,11 @@ a {
 }
 
 h1 {
-  font-size: 70px;
+  font-size: 60px;
+}
+
+h2 {
+  font-size: 36px;
 }
 
 a:hover {
@@ -141,6 +144,8 @@ header .wrapper_container {
 }
 
 /* CHANGE SECTION STYLE */
+
+
 
 .greeting_fight {
   max-width: 500px;

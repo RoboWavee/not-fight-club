@@ -10,11 +10,13 @@ document.addEventListener('DOMContentLoaded', function() {
     changeSection.style.display = 'none';
 
     const savedName = localStorage.getItem('fighterName');
+
     if (savedName) {
         enterSection.style.display = 'none';
         changeSection.style.display = 'block';
-        greeting.textContent = `Hello, ${savedName}! Don't want to fight?`;
-    }
+        greeting.style.whiteSpace = 'pre-line';
+        greeting.textContent = `Hello, ${savedName}!\nDon't want to fight?`;
+    } 
 
     nameForm.addEventListener('submit', function(e) {
         e.preventDefault();

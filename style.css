@@ -1,0 +1,68 @@
+:root {
+  --bg-dark: #030303;
+  --bg-white: #ffffff;
+  --font-boss: #a77540;
+  --font-hero: #590550;
+  --font-damage: #c83b1d;
+  --font-main: #543524;
+  --font-h1: 80px;
+  --font-h2: 50px;
+  --font-common: 24px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  margin: 0 auto;
+  font-family: Roboto, sans-serif;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("assets/fonts/Roboto/Roboto-VariableFont_wdth\,wght.ttf");
+}
+
+header,
+section,
+footer {
+  padding-top: 75px;
+  background-color: var(--bg-white);
+  max-width: 1024px;
+  margin: 0px auto;
+}
+
+h1, h2, h3, p, li, a {
+    font-family: Roboto;
+  color: var(--font-main);
+  text-decoration: none;
+}
+
+a:hover {
+    color: var(--font-damage);
+}
+
+
+.footer_list {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+ 
+}
+

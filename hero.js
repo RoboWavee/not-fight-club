@@ -43,6 +43,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const heroOptions = document.getElementById('hero_options');
     const closeSelector = document.querySelector('.close_selector');
 
+    if (!localStorage.getItem('selectedHero')) {
+    localStorage.setItem('selectedHero', JSON.stringify({
+        image: heroes[0].image,
+        description: heroes[0].description
+    }));
+}
+
 
     function createHeroOptions() {
         heroOptions.innerHTML = '';
@@ -59,7 +66,15 @@ document.addEventListener('DOMContentLoaded', function () {
             option.addEventListener('click', () => {
                 heroPic.src = hero.image;
                 heroDescription.textContent = hero.description;
+
+                localStorage.setItem('selectedHero', JSON.stringify({
+                    image: hero.image,
+                    description: hero.description
+                }));
+
                 heroSelector.style.display = 'none';
+
+
             });
 
             heroOptions.appendChild(option);

@@ -153,7 +153,27 @@ header .wrapper_container {
   text-align: center;
   display: flex;
   flex-direction: column;
+  gap: 15px;
 }
+
+.hero_view {
+  width: 250px;
+  height: 300px;
+  cursor: pointer;
+}
+
+.hero_pic {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+   transition: transform 0.3s;
+}
+
+.hero_pic:hover {
+  transform: scale(1.05);
+}
+
+
 
 #fight_button {
   width: 300px;
@@ -181,7 +201,7 @@ header .wrapper_container {
 
 
 .change_fighter {
-  margin: 250px auto;
+  margin: 100px auto;
   text-align: right;
   display: flex;
   flex-direction: column;

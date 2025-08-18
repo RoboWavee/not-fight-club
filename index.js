@@ -7,16 +7,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const fightButton = document.getElementById('fight_button');
     const backButton = document.getElementById('back_button');
 
+    
+
     changeSection.style.display = 'none';
 
     const savedName = localStorage.getItem('fighterName');
+    const savedHero = localStorage.getItem('selectedHero');
+    const heroImg = document.getElementById('main_hero_img');
 
     if (savedName) {
         enterSection.style.display = 'none';
         changeSection.style.display = 'block';
-        greeting.style.whiteSpace = 'pre-line';
-        greeting.textContent = `Hello, ${savedName}!\nDon't want to fight?`;
+        
+        greeting.textContent = `Hello, ${savedName}!`;
     } 
+
+     if (savedHero) {
+        const hero = JSON.parse(savedHero);
+        heroImg.src = hero.image; // Обновляем картинку
+    }
 
     nameForm.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -27,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
             enterSection.style.display = 'none';
             changeSection.style.display = 'block';
             
-            greeting.textContent = `Hello, ${name}! Don't want to fight?`;
+            greeting.textContent = `Hello, ${name}!`;
             nameInput.value = '';
         }
     });

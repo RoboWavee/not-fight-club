@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
      if (savedHero) {
         const hero = JSON.parse(savedHero);
-        heroImg.src = hero.image; // Обновляем картинку
+        heroImg.src = hero.image; 
     }
 
     nameForm.addEventListener('submit', function(e) {

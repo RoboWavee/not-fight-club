@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function () {
     
     const savedName = localStorage.getItem('fighterName');
     const savedHero = localStorage.getItem('selectedHero');
+       const nameForm = document.getElementById('name_form');
+        const nameInput = document.getElementById('name_input');
 
 
 if (!savedName || !savedHero) {
@@ -20,4 +22,15 @@ if (!savedName || !savedHero) {
     heroPicElement.alt = hero.name;
 }
 
+  nameForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const heroNameElement = document.getElementById('hero_name');
+        const name = nameInput.value.trim();               
+        if (name) {
+            localStorage.setItem('fighterName', name);
+            nameInput.value = '';
+        }
+
+        heroNameElement.textContent = name;
+    });
 });

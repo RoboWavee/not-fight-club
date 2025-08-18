@@ -91,7 +91,6 @@ document.addEventListener('DOMContentLoaded', function () {
         heroSelector.style.display = 'none';
     });
 
-    // Close selector when clicking outside of the container
     heroSelector.addEventListener('click', (e) => {
         if (e.target === heroSelector) {
             heroSelector.style.display = 'none';

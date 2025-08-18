@@ -6,14 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const nameInput = document.getElementById('name_input');
     const fightButton = document.getElementById('fight_button');
     const backButton = document.getElementById('back_button');
-
-    
-
-    changeSection.style.display = 'none';
-
     const savedName = localStorage.getItem('fighterName');
     const savedHero = localStorage.getItem('selectedHero');
     const heroImg = document.getElementById('main_hero_img');
+
+    changeSection.style.display = 'none';
 
     if (savedName) {
         enterSection.style.display = 'none';

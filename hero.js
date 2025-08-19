@@ -44,11 +44,27 @@ document.addEventListener('DOMContentLoaded', function () {
     const closeSelector = document.querySelector('.close_selector');
 
     if (!localStorage.getItem('selectedHero')) {
-    localStorage.setItem('selectedHero', JSON.stringify({
-        image: heroes[0].image,
-        description: heroes[0].description
-    }));
-}
+        localStorage.setItem('selectedHero', JSON.stringify({
+            image: heroes[0].image,
+            description: heroes[0].description
+        }));
+    }
+
+    const savedHero = localStorage.getItem('selectedHero');
+    if (savedHero) {
+        const heroData = JSON.parse(savedHero);
+        heroPic.src = heroData.image;
+        heroDescription.textContent = heroData.description;
+    } else {
+      
+        localStorage.setItem('selectedHero', JSON.stringify({
+            image: heroes[0].image,
+            description: heroes[0].description
+        }));
+        
+        heroPic.src = heroes[0].image;
+        heroDescription.textContent = heroes[0].description;
+    }
 
 
     function createHeroOptions() {

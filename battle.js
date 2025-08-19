@@ -4,20 +4,31 @@ document.addEventListener('DOMContentLoaded', function () {
     const savedName = localStorage.getItem('fighterName');
     const savedHero = localStorage.getItem('selectedHero');
 
+    const defaultHero = {
+        image: 'assets/hero/Mouse.png',
+        description: 'Mouse Fitzgerald (or just Fitz) is a green mouse who displays sociopathic, alcoholic, amnesiac, and anthropomorphic behavior. He is fond of beer and is caught in a world of espionage, love, and the delights of odd jobs.'
+    };
 
-    if (!savedName || !savedHero) {
+
+    if (!savedName) {
         window.location.href = 'index.html';
-    } else {
+        return; // Прерываем выполнение
+    }
 
-        const hero = JSON.parse(savedHero);
+    // Устанавливаем имя игрока
+    const heroNameElement = document.getElementById('hero_name');
+    heroNameElement.textContent = savedName;
 
+    // Устанавливаем героя (сохраненного или по умолчанию)
+    const hero = savedHero ? JSON.parse(savedHero) : defaultHero;
+    const heroPicElement = document.querySelector('.hero_view img');
+    heroPicElement.src = hero.image;
+    heroPicElement.alt = hero.name || savedName; // Используем имя героя или имя игрока
 
-        const heroNameElement = document.getElementById('hero_name');
-        heroNameElement.textContent = savedName;
-
-        const heroPicElement = document.querySelector('.hero_view img'); // Исправлено на .hero_view img
-        heroPicElement.src = hero.image;
-        heroPicElement.alt = hero.name;
+    // Устанавливаем описание героя, если есть элемент для него
+    const heroDescriptionElement = document.getElementById('hero_description');
+    if (heroDescriptionElement && hero.description) {
+        heroDescriptionElement.textContent = hero.description;
     }
 
     const bosses = [

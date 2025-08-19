@@ -186,3 +186,32 @@ width: 300px;
   border-radius: 5px;
   cursor: pointer;
 }
+
+.back_to_fight {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.to_fight {
+  width: 200px;
+  padding: 10px;
+  text-align: center;
+  background-color: var(--font-hero);
+  color: var(--bg-white);
+  border: none;
+  border-radius: 5px;
+  font-size: var(--font-common);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.to_fight:hover {
+   background-color: var(--font-boss);
+  color: var(--bg-white);
+}
+
+.to_fight:active {
+   background-color: var(--font-boss);
+  color: var(--font-hero);
+  transform: scale(0.9);  
+}

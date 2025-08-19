@@ -12,20 +12,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (!savedName) {
         window.location.href = 'index.html';
-        return; // Прерываем выполнение
+        return; 
     }
 
-    // Устанавливаем имя игрока
     const heroNameElement = document.getElementById('hero_name');
     heroNameElement.textContent = savedName;
 
-    // Устанавливаем героя (сохраненного или по умолчанию)
+   
     const hero = savedHero ? JSON.parse(savedHero) : defaultHero;
     const heroPicElement = document.querySelector('.hero_view img');
     heroPicElement.src = hero.image;
     heroPicElement.alt = hero.name || savedName; // Используем имя героя или имя игрока
 
-    // Устанавливаем описание героя, если есть элемент для него
+
     const heroDescriptionElement = document.getElementById('hero_description');
     if (heroDescriptionElement && hero.description) {
         heroDescriptionElement.textContent = hero.description;

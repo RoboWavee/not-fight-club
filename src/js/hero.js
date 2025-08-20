@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (savedName) {
         heroName.textContent = savedName;
     } else {
-        window.location.href = '/src/index.html';
+        window.location.href = 'index.html';
     }
 
 

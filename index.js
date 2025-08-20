@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const heroImg = document.getElementById('main_hero_img');
 
     const defaultHero = {
-        image: '/src/assets/hero/Mouse.png'
+        image: '/assets/hero/Mouse.png'
     };
 
     changeSection.style.display = 'none';
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     fightButton.addEventListener('click', function() {
-        window.location.href = '/src/pages/fight.html'; 
+        window.location.href = 'fight.html'; 
     });
 
         backButton.addEventListener('click', function() {

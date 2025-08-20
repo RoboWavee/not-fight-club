@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 if (!savedName || !savedHero) {
-    window.location.href = 'index.html';
+    window.location.href = '/src/pages/index.html';
 } else {
     
     const hero = JSON.parse(savedHero);

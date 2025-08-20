@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     fightButton.addEventListener('click', function() {
-        window.location.href = 'fight.html'; // Замените на нужный URL
+        window.location.href = '/src/pages/fight.html'; 
     });
 
         backButton.addEventListener('click', function() {

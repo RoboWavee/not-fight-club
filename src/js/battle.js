@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     if (!savedName) {
-        window.location.href = '/src/index.html';
+        window.location.href = 'index.html';
         return; 
     }
 

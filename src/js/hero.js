@@ -43,13 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const heroOptions = document.getElementById('hero_options');
     const closeSelector = document.querySelector('.close_selector');
 
-    if (!localStorage.getItem('selectedHero')) {
-        localStorage.setItem('selectedHero', JSON.stringify({
-            image: heroes[0].image,
-            description: heroes[0].description
-        }));
-    }
-
+   
     const savedHero = localStorage.getItem('selectedHero');
     if (savedHero) {
         const heroData = JSON.parse(savedHero);

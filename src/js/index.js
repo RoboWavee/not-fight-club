@@ -30,11 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
         greeting.textContent = `Hello, ${savedName}!`;
     } 
 
-     if (savedHero) {
-        const hero = JSON.parse(savedHero);
-        heroImg.src = hero.image; 
-    }
-
     nameForm.addEventListener('submit', function(e) {
         e.preventDefault();
         const name = nameInput.value.trim();

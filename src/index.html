@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/css/style.css" />
+
+    <title>Not a Fight Club</title>
+</head>
+
+<body>
+    <header>
+        <div class="wrapper_container">
+            <h1>Not a Fight Club</h1>
+
+            <div class="menu_header">
+                <ul class="menu_list">
+                    <li class="menu_list_item">
+                        <a href="index.html"> <img src="/src/assets/svg/home.svg" alt="Home" /> </a>
+                    </li>
+                    <li class="menu_list_item">
+                        <a href="/src/pages/character.html"> <img src="/src/assets/svg/person.svg" alt="Hero" /> </a>
+                    </li>
+                    <li class="menu_list_item">
+                        <a href="/src/pages/settings.html">
+                            <img src="/src/assets/svg/settings.svg" alt="Settings" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section id="main_section">
+        <div class="wrapper_container">
+
+            <div id="enter_section">
+                <form id="name_form">
+                    <input type="text" id="name_input" placeholder="What's your name, not a hero?" required />
+                    <button type="submit" id="name_button">This is my name</button>
+                </form>
+            </div>
+
+            <div id="change_section">
+                <div class="greeting_fight">
+                    <h2 id="greeting"></h2>
+
+                    <div class="hero_view">
+                        <a href="/src/pages/character.html">
+                        <img class="hero_pic"  id="main_hero_img" src="/src/assets/hero/Mouse.png" alt="hero" />
+                        </a>
+                    </div>
+
+
+                    <h2>Don't want to fight?</h2>
+                    <button type="submit" id="fight_button">Don't fight!</button>
+                </div>
+
+                <div class="change_fighter">
+                    <p class="change_text">* I want to change my name</p>
+                    <button type="submit" id="back_button">Change</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- <footer>
+        <div class="wrapper_container">
+            <ul class="footer_list">
+                <li class="footer_list_item">&#169; 2025</li>
+                <li class="footer_list_item">The Rolling Scopes School</li>
+                <li class="footer_list_item">
+                    <a href="https://github.com/RoboWavee" target="_blank">RoboWavee</a>
+                </li>
+            </ul>
+        </div>
+    </footer> -->
+
+    <script src="/src/js/index.js"></script>
+</body>
+
+</html>

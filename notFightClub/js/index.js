@@ -10,7 +10,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const savedHero = localStorage.getItem('selectedHero');
     const heroImg = document.getElementById('main_hero_img');
 
+    const defaultHero = {
+        image: '../assets/hero/Mouse.png'
+    };
+
     changeSection.style.display = 'none';
+
+      if (savedHero) {
+        const hero = JSON.parse(savedHero);
+        heroImg.src = hero.image; 
+    } else {
+        heroImg.src = defaultHero.image; 
+    }
 
     if (savedName) {
         enterSection.style.display = 'none';

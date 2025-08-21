@@ -64,8 +64,7 @@
                     </div>
 
                     <div class="health_container">
-                        <div class="health_label">Hero Health</div>
-                        <div class="health_bar" id="hero_health_bar" style="width: 100%">
+                       <div class="health_bar" id="hero_health_bar" style="width: 100%">
                             <span class="health_text" id="hero_health_text">150 / 150</span>
                         </div>
                     </div>
@@ -79,26 +78,26 @@
                     <div class="zones_container">
 
                         <div class="defence_block">
-                            <p>Defence Zones</p>
+                            <p class="zones_title">Defence Zones</p>
                             <div class="defence_zones">
                                 <div class="zone_option">
-                                    <input type="radio" id="defence_head" name="defence_zone" value="head">
+                                    <input type="checkbox" id="defence_head" name="defence_zone" value="head">
                                     <label for="defence_head" class="zone_label">Head</label>
                                 </div>
                                 <div class="zone_option">
-                                    <input type="radio" id="defence_body" name="defence_zone" value="body">
+                                    <input type="checkbox" id="defence_body" name="defence_zone" value="body">
                                     <label for="defence_body" class="zone_label">Body</label>
                                 </div>
                                 <div class="zone_option">
-                                    <input type="radio" id="defence_hands" name="defence_zone" value="hands">
+                                    <input type="checkbox" id="defence_hands" name="defence_zone" value="hands">
                                     <label for="defence_hands" class="zone_label">Hands</label>
                                 </div>
                                 <div class="zone_option">
-                                    <input type="radio" id="defence_belly" name="defence_zone" value="belly">
+                                    <input type="checkbox" id="defence_belly" name="defence_zone" value="belly">
                                     <label for="defence_belly" class="zone_label">Belly</label>
                                 </div>
                                 <div class="zone_option">
-                                    <input type="radio" id="defence_legs" name="defence_zone" value="legs">
+                                    <input type="checkbox" id="defence_legs" name="defence_zone" value="legs">
                                     <label for="defence_legs" class="zone_label">Legs</label>
                                 </div>
                             </div>
@@ -106,26 +105,26 @@
 
 
                         <div class="attack_block">
-                            <p>Attack Zones</p>
+                            <p class="zones_title">Attack Zones</p>
                             <div class="attack_zones">
                                 <div class="zone_option">
-                                    <input type="radio" id="attack_head" name="attack_zone" value="head">
+                                    <input type="checkbox" id="attack_head" name="attack_zone" value="head">
                                     <label for="attack_head" class="zone_label">Head</label>
                                 </div>
                                 <div class="zone_option">
-                                    <input type="radio" id="attack_body" name="attack_zone" value="body">
+                                    <input type="checkbox" id="attack_body" name="attack_zone" value="body">
                                     <label for="attack_body" class="zone_label">Body</label>
                                 </div>
                                 <div class="zone_option">
-                                    <input type="radio" id="attack_hands" name="attack_zone" value="hands">
+                                    <input type="checkbox" id="attack_hands" name="attack_zone" value="hands">
                                     <label for="attack_hands" class="zone_label">Hands</label>
                                 </div>
                                 <div class="zone_option">
-                                    <input type="radio" id="attack_belly" name="attack_zone" value="belly">
+                                    <input type="checkbox" id="attack_belly" name="attack_zone" value="belly">
                                     <label for="attack_belly" class="zone_label">Belly</label>
                                 </div>
                                 <div class="zone_option">
-                                    <input type="radio" id="attack_legs" name="attack_zone" value="legs">
+                                    <input type="checkbox" id="attack_legs" name="attack_zone" value="legs">
                                     <label for="attack_legs" class="zone_label">Legs</label>
                                 </div>
                             </div>
@@ -138,15 +137,6 @@
 
                 </div>
 
-
-
-
-
-
-
-
-
-
                 <div id="boss">
 
                     <h2 id="boss_name">Loading boss...</h2>
@@ -156,7 +146,6 @@
                     </div>
 
                     <div class="health_container">
-                        <div class="health_label">Boss Health</div>
                         <div class="health_bar" id="boss_health_bar" style="width: 100%">
                             <span class="health_text" id="boss_health_text">150 / 150</span>
                         </div>
@@ -168,23 +157,12 @@
             </div>
 
             <div class="battle_log">
-                егег attacked Snow troll to Legs but Snow troll was able to protect his Legs.
-                Snow troll attacked егег to Legs and deal 20 damage.
-                ЩЩЩЩ attacked Snow troll to Legs but Snow troll was able to protect his Legs.
-                Snow troll attacked ЩЩЩЩ to Head ЩЩЩЩ tried to block but Snow troll was very lucky and crit his
-                oppenent
-                for 30 damage.
-                ЩЩЩЩ attacked Spacemarine to Neck and deal 10 damage.
-                Spacemarine attacked ЩЩЩЩ to Body but ЩЩЩЩ was able to protect his Body.
-                ЩЩЩЩ attacked Spacemarine to Belly and deal 10 damage.
-                Spacemarine attacked ЩЩЩЩ to Body but ЩЩЩЩ was able to protect his Body.
+              
             </div>
 
-
-
-
-
         </div>
+
+        
     </section>
 
     <script src="battle.js"></script>

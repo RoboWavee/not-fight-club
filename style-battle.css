@@ -220,7 +220,7 @@ header .wrapper_container {
 
 .health_bar {
   height: 30px;
-  background: linear-gradient(90deg, #c83b1d, #cf9235, #e4d33b, #244c3f);
+  background: var(--font-damage);
   border-radius: 3px;
   transition: width 0.3s ease;
   position: relative;
@@ -244,24 +244,21 @@ header .wrapper_container {
 }
 
 .battle_block_instr {
-  font-size: 18px;
+  font-size: 19px;
   text-align: center;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .zones_container {
   display: flex;
   justify-content: space-between;
-  gap: 20px;
   max-width: 800px;
-  margin: 15px auto;
+  margin: 15px auto 0 auto;
 }
 
 .defence_block,
 .attack_block {
   padding: 20px;
-  border: 2px solid #ccc;
-  background-color: #f9f9f9;
 }
 
 .defence_zones,
@@ -270,6 +267,10 @@ header .wrapper_container {
   flex-direction: column;
   gap: 10px;
   margin-top: 10px;
+}
+
+.zones_title{
+  font-weight: 600;
 }
 
 .zone_option {
@@ -281,16 +282,18 @@ header .wrapper_container {
 .zone_label {
   cursor: pointer;
   font-size: 18px;
+  color: var(--font-hero);
+  font-weight: 500;
 }
 
-input[type="radio"] {
+input[type="checkbox"] {
   cursor: pointer;
 }
 
 .attack_btn {
   width: 330px;
   padding: 10px;
-  margin: 5px auto;
+  margin: 3px auto;
   background-color: var(--font-damage);
   color: var(--bg-white);
   border: none;

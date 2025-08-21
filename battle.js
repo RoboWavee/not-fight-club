@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-
     const savedName = localStorage.getItem('fighterName');
     const savedHero = localStorage.getItem('selectedHero');
 
@@ -35,21 +34,24 @@ document.addEventListener('DOMContentLoaded', function () {
             name: 'Shark',
             image: 'assets/boss/Shark.png',
             health: 150,
-            criticalChance: 30,
+            attack: 1,
+            defence: 3,
             description: 'A boss-shark who became everyone\'s nightmare. Pathologically obsessed with control, yet too lazy for brute force. Speaks in whispers, makes threats wrapped in riddles. Won\'t dirty his fins—he\'d rather sic sentient pepperoni on you or leave a severed hand in your fridge. Office terror is his eternal modus operandi. His signature move? Strike one spot while locking down three.'
         },
         {
             name: 'No-Eyed Guy',
             image: 'assets/boss/Cub.png',
             health: 200,
-            criticalChance: 20,
+            attack: 2,
+            defence: 1,
             description: 'An arrogant pink square sporting round glasses (despite having no eyes), who fancies himself an oligarch and constantly flaunts his wealth. He tears people apart telepathically, then charges them for "consulting services" and offers "business opportunities" that inevitably explode (along with your life). He\'ll "invest" in you with two attacks, yet only patches up one hole in his own budget.'
         },
         {
             name: 'Pronto',
             image: 'assets/boss/Pronto.png',
             health: 120,
-            criticalChance: 40,
+            attack: 1,
+            defence: 2,
             description: 'This glorified file clerk turned wannabe assassin spends more time running from fights than actually drawing his bow. Claims to live in some fancy "condo by the quiver" like that makes him sound important rather than just unemployed with extra steps. He\'s just as weak (not John Wick) as you are. Operates on "archer math" - fires one arrow maximum before booking it through two emergency exits.'
         }
     ];
@@ -60,7 +62,122 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.boss_pic').src = randomBoss.image;
     document.querySelector('.boss_pic').alt = randomBoss.name;
     document.getElementById('boss_tooltip').textContent = randomBoss.description;
-
     localStorage.setItem('currentBoss', JSON.stringify(randomBoss));
+
+
+
+
+    // БОЙ. ВЫБОР АТАКИ И ЗАЩИТЫ
+
+    
+    const defenceCheckboxes = document.querySelectorAll('input[name="defence_zone"]');
+    const attackCheckboxes = document.querySelectorAll('input[name="attack_zone"]');
+    const attackButton = document.getElementById('attack_button');
+
+    let defenceSelected = 0;
+    let attackSelected = false;
+
+    defenceCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            if (this.checked) {
+                if (defenceSelected < 2) {
+                    defenceSelected++;
+                } else {
+                    this.checked = false;
+                    return;
+                }
+            } else {
+                defenceSelected--;
+            }
+            
+            updateAttackButton();
+        });
+    });
+
+      attackCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            if (this.checked) {
+          
+                attackCheckboxes.forEach(otherCheckbox => {
+                    if (otherCheckbox !== this) {
+                        otherCheckbox.checked = false;
+                    }
+                });
+                attackSelected = true;
+            } else {
+                attackSelected = false;
+            }
+            
+            updateAttackButton();
+        });
+    });
+
+    function updateAttackButton() {
+        
+        if (defenceSelected === 2 && attackSelected) {
+            attackButton.disabled = false;
+            attackButton.style.cursor = 'pointer';
+            attackButton.style.opacity = '1';
+        } else {
+            attackButton.disabled = true;
+            attackButton.style.cursor = 'not-allowed';
+            attackButton.style.opacity = '0.6';
+        }
+    }
+
+    attackButton.addEventListener('click', function() {
+       
+        const selectedDefence = [];
+        defenceCheckboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                selectedDefence.push(checkbox.value);
+            }
+        });
+        
+        
+        let selectedAttack = '';
+        attackCheckboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                selectedAttack = checkbox.value;
+            }
+        });
+        
+
+        console.log('Attack plan:', {
+            defence: selectedDefence,
+            attack: selectedAttack
+        });
+        
+        // Здесь будет логика боя
+        
+        // Сброс выбора после атаки
+        resetSelection();
+    });
+
+    function resetSelection() {
+            defenceCheckboxes.forEach(checkbox => {
+            checkbox.checked = false;
+        });
+        
+         attackCheckboxes.forEach(checkbox => {
+            checkbox.checked = false;
+        });
+        
+        
+        defenceSelected = 0;
+        attackSelected = false;
+        
+       
+        updateAttackButton();
+    }
+
+    
+    updateAttackButton();
+
+
+
+
+
+
 
 });

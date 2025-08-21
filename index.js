@@ -8,25 +8,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const backButton = document.getElementById('back_button');
     const savedName = localStorage.getItem('fighterName');
     const savedHero = localStorage.getItem('selectedHero');
+  
+    const defaultImg = document.getElementById('default_hero_img');
     const heroImg = document.getElementById('main_hero_img');
-
-    const defaultHero = {
-        image: 'assets/hero/Mouse.png'
-    };
 
     changeSection.style.display = 'none';
 
-      if (savedHero) {
+   
+    if (savedHero) {
         const hero = JSON.parse(savedHero);
-        heroImg.src = hero.image; 
+        heroImg.src = hero.image;
+        heroImg.style.display = 'block';
+        defaultImg.style.display = 'none';
     } else {
-        heroImg.src = defaultHero.image; 
+        heroImg.style.display = 'none';
+        defaultImg.style.display = 'block';
     }
 
     if (savedName) {
         enterSection.style.display = 'none';
         changeSection.style.display = 'block';
-        
         greeting.textContent = `Hello, ${savedName}!`;
     } 
 
@@ -38,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('fighterName', name);
             enterSection.style.display = 'none';
             changeSection.style.display = 'block';
-            
             greeting.textContent = `Hello, ${name}!`;
             nameInput.value = '';
         }
@@ -48,9 +48,13 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = 'fight.html'; 
     });
 
-        backButton.addEventListener('click', function() {
+    backButton.addEventListener('click', function() {
         localStorage.removeItem('fighterName');
+        localStorage.removeItem('selectedHero');
         enterSection.style.display = 'block';
         changeSection.style.display = 'none';
+        
+        heroImg.style.display = 'none';
+        defaultImg.style.display = 'block';
     });
 });

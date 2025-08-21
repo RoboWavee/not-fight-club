@@ -172,6 +172,23 @@ header .wrapper_container {
   transform: scale(1.05);
 }
 
+.default_pic, .hero_pic {
+    transition: opacity 0.3s ease;
+}
+
+.hero_pic {
+    display: none;
+}
+
+.default_pic {
+    display: block;
+     transition: transform 0.3s;
+}
+
+.default_pic:hover {
+  transform: scale(1.05);
+}
+
 #fight_button {
   width: 300px;
   padding: 10px;

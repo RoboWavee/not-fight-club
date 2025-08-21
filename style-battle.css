@@ -289,7 +289,7 @@ input[type="radio"] {
 
 .attack_btn {
   width: 330px;
-   padding: 10px;
+  padding: 10px;
   margin: 5px auto;
   background-color: var(--font-damage);
   color: var(--bg-white);
@@ -297,30 +297,22 @@ input[type="radio"] {
   font-size: var(--font-common);
   cursor: pointer;
   transition: 0.3s;
+  display: block;
 }
 
-.attack_btn:hover {
-   background-color: var(--font-boss);
-  color: var(--bg-white);
+.attack_btn:disabled {
+  cursor: not-allowed;
+  transform: none;
 }
 
-.attack_btn:active {
-   background-color: var(--font-boss);
-  color: var(--font-hero);
-  transform: scale(0.9);  
+.attack_btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(231, 76, 60, 0.6);
 }
 
-
-
-
-
-
-
-
-
-
-
-
+.attack_btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
 
 
 

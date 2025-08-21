@@ -64,10 +64,11 @@
                     </div>
 
                     <div class="health_container">
-                       <div class="health_bar" id="hero_health_bar" style="width: 100%">
-                            <span class="health_text" id="hero_health_text">150 / 150</span>
-                        </div>
-                    </div>
+    <div class="health_bar_background">
+        <div class="health_bar_fill" id="hero_health_bar"></div>
+        <span class="health_text" id="hero_health_text">100 / 100</span>
+    </div>
+</div>
 
                 </div>
 
@@ -145,24 +146,25 @@
                         <div class="boss_tooltip" id="boss_tooltip"></div>
                     </div>
 
-                    <div class="health_container">
-                        <div class="health_bar" id="boss_health_bar" style="width: 100%">
-                            <span class="health_text" id="boss_health_text">150 / 150</span>
-                        </div>
-                    </div>
+                   <div class="health_container">
+    <div class="health_bar_background">
+        <div class="health_bar_fill" id="boss_health_bar"></div>
+        <span class="health_text" id="boss_health_text">100 / 100</span>
+    </div>
+</div>
 
 
 
                 </div>
             </div>
 
-            <div class="battle_log">
+            <div class="battle_log" id="battle_log"></div>
               
             </div>
 
         </div>
 
-        
+
     </section>
 
     <script src="battle.js"></script>

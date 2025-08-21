@@ -63,28 +63,39 @@
                         <img class="hero_pic" src="assets/hero/Mouse.png" alt="hero" />
                     </div>
 
-                    <div class="hero_stamina">
-                        <div>Панель заполнения</div>
-                        <div>Панель критического удара</div>
-                        <p class="hero_score">150 / 150</p>
+                    <div class="health-container">
+                        <div class="health-label">Hero Health</div>
+                        <div class="health-bar" id="hero-health-bar" style="width: 100%">
+                            <span class="health-text" id="hero-health-text">150 / 150</span>
+                        </div>
                     </div>
+
+
+
+
+
+
                 </div>
 
                 <div id="battle_block">battle_block</div>
 
                 <div id="boss">
 
-                      <h2 id="boss_name">Loading boss...</h2>
-                      <div class="boss_view">
-                          <img class="boss_pic" src="assets/boss/Shark.png" alt="boss" />
-                           <div class="boss_tooltip" id="boss_tooltip"></div>
-                      </div>
-
-                    <div class="boss_stamina">
-                        <div>Панель заполнения</div>
-                        <div>Панель критического удара</div>
-                        <p class="boss_score">150 / 150</p>
+                    <h2 id="boss_name">Loading boss...</h2>
+                    <div class="boss_view">
+                        <img class="boss_pic" src="assets/boss/Shark.png" alt="boss" />
+                        <div class="boss_tooltip" id="boss_tooltip"></div>
                     </div>
+
+                    <div class="health-container">
+                        <div class="health-label">Boss Health</div>
+                        <div class="health-bar" id="boss-health-bar" style="width: 100%">
+                            <span class="health-text" id="boss-health-text">150 / 150</span>
+                        </div>
+                    </div>
+
+
+
                 </div>
             </div>
 

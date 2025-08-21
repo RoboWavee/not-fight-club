@@ -205,6 +205,71 @@ header .wrapper_container {
   opacity: 1;
 }
 
+
+
+
+
+.health-container {
+    width: 300px;
+    margin: 20px auto;
+    
+    padding: 10px;
+}
+
+.health-label {
+    color: var(--font-main);
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.health-bar {
+    height: 30px;
+    background: linear-gradient(90deg, #c83b1d, #cf9235, #e4d33b, #244c3f);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+    position: relative;
+}
+
+.health-text {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--bg-dark);
+    font-weight:800;
+    text-shadow: 0 0 3px white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .battle_log {
   margin-top: 15px;
 }

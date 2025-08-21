@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const heroImg = document.getElementById('main_hero_img');
 
     const defaultHero = {
-        image: '/assets/hero/Mouse.png'
+        image: 'assets/hero/Mouse.png'
     };
 
     changeSection.style.display = 'none';

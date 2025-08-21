@@ -17,7 +17,7 @@ if (!savedName || !savedHero) {
     const heroNameElement = document.getElementById('hero_name');
     heroNameElement.textContent = savedName;
     
-    const heroPicElement = document.querySelector('.hero_view img'); // Исправлено на .hero_view img
+    const heroPicElement = document.querySelector('.hero_view img'); 
     heroPicElement.src = hero.image;
     heroPicElement.alt = hero.name;
 }

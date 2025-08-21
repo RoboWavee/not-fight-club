@@ -12,27 +12,27 @@ document.addEventListener('DOMContentLoaded', function () {
     const heroes = [
         {
             id: 1,
-            image: '/assets/hero/Mouse.png',
+            image: 'assets/hero/Mouse.png',
             description: 'Mouse Fitzgerald (or just Fitz) is a green mouse who displays sociopathic, alcoholic, amnesiac, and anthropomorphic behavior. He is fond of beer and is caught in a world of espionage, love, and the delights of odd jobs. His speech usually consists of slow surrealist talking or a roundabout figure of speech instead of straight answers to questions.'
         },
         {
             id: 2,
-            image: '/assets/hero/Skillet-re.jpg',
+            image: 'assets/hero/Skillet-re.jpg',
             description: 'Skillet isn\'t a squirrel — he\'s a chinchilla who can blast lasers from his eyes (yep, handy for cutting ropes when tied to a chair). In his free time, he shreds on drums like a pro.'
         },
         {
             id: 3,
-            image: '/assets/hero/NewGuy-re.jpg',
+            image: 'assets/hero/NewGuy-re.jpg',
             description: 'The New Guy is a strange, ghostly umbrella-like being who lives in a Warehouse. He has a huge obsession with a lounge/exotic song named Princess Cruiser by Tongo Hiti, which often plays on his Record Player so he can dance to it on a hula hoop to hypnotize and torture people with it.'
         },
         {
             id: 4,
-            image: '/assets/hero/Cop.png',
+            image: 'assets/hero/Cop.png',
             description: 'Peanut Cop is a blue peanut who works as a cop but usually fails at his own job of solving crimes by being very drunk or stoned. Peanut is mostly unintelligent (such as mistaking blood for ice cream or hats for shoes) but does have some sort of knowledge at times such as knowing about the functions of the JavaScript and accounting audit.'
         },
         {
             id: 5,
-            image: '/assets/hero/Roosty.png',
+            image: 'assets/hero/Roosty.png',
             description: 'Roostre (pronounced and also spelled as Rooster) is a corndog farmer who lives on a farm full of giant corndogs. He has blonde hair that is constantly moving, a hook used in place for one of his hands, and has a habit of playing on an acoustic guitar to sing. Roostre often talks about flat earth and reptilians, which is enough to give anyone a stroke.'
         }
     ];

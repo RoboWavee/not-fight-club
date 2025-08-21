@@ -39,7 +39,7 @@ body {
 header,
 section,
 footer {
-  padding-top: 75px;
+  padding-top: 30px;
   background-color: var(--bg-white);
   max-width: 1024px;
   margin: 0px auto;
@@ -96,7 +96,7 @@ header .wrapper_container {
   gap: 20px;
 }
 
-#battle-scene {
+#battle_scene {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid var(--font-main);
@@ -162,7 +162,7 @@ header .wrapper_container {
   width: 250px;
   max-height: 300px;
   overflow-y: auto;
-  background-color: rgba(0, 0, 0, 0.9); /* Полупрозрачный фон */
+  background-color: rgba(0, 0, 0, 0.9);
   color: #fff;
   text-align: left;
   border-radius: 8px;
@@ -205,48 +205,110 @@ header .wrapper_container {
   opacity: 1;
 }
 
-
-
-
-
-.health-container {
-    width: 300px;
-    margin: 20px auto;
-    
-    padding: 10px;
+.health_container {
+  width: 300px;
+  margin: 10px auto;
+  padding: 10px;
 }
 
-.health-label {
-    color: var(--font-main);
-    font-weight: bold;
-    margin-bottom: 5px;
-    text-align: center;
+.health_label {
+  color: var(--font-main);
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
-.health-bar {
-    height: 30px;
-    background: linear-gradient(90deg, #c83b1d, #cf9235, #e4d33b, #244c3f);
-    border-radius: 3px;
-    transition: width 0.3s ease;
-    position: relative;
+.health_bar {
+  height: 30px;
+  background: linear-gradient(90deg, #c83b1d, #cf9235, #e4d33b, #244c3f);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+  position: relative;
 }
 
-.health-text {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--bg-dark);
-    font-weight:800;
-    text-shadow: 0 0 3px white;
+.health_text {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--bg-dark);
+  font-weight: 800;
+  text-shadow: 0 0 3px white;
 }
 
+.battle_block {
+  display: flex;
+  flex-direction: column;
+  margin-top: 55px;
+  align-items: center;
+}
 
+.battle_block_instr {
+  font-size: 18px;
+  text-align: center;
+  font-weight: 800;
+}
 
+.zones_container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 800px;
+  margin: 15px auto;
+}
 
+.defence_block,
+.attack_block {
+  padding: 20px;
+  border: 2px solid #ccc;
+  background-color: #f9f9f9;
+}
 
+.defence_zones,
+.attack_zones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
 
+.zone_option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
+.zone_label {
+  cursor: pointer;
+  font-size: 18px;
+}
+
+input[type="radio"] {
+  cursor: pointer;
+}
+
+.attack_btn {
+  width: 330px;
+   padding: 10px;
+  margin: 5px auto;
+  background-color: var(--font-damage);
+  color: var(--bg-white);
+  border: none;
+  font-size: var(--font-common);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.attack_btn:hover {
+   background-color: var(--font-boss);
+  color: var(--bg-white);
+}
+
+.attack_btn:active {
+   background-color: var(--font-boss);
+  color: var(--font-hero);
+  transform: scale(0.9);  
+}
 
 
 

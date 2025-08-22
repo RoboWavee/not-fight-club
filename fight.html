@@ -54,7 +54,7 @@
         <div class="wrapper_container">
 
 
-            <div id="battle-scene">
+            <div id="battle_scene">
 
                 <div id="hero">
                     <h2 id="hero_name"></h2>
@@ -63,48 +63,108 @@
                         <img class="hero_pic" src="assets/hero/Mouse.png" alt="hero" />
                     </div>
 
-                    <div class="hero_stamina">
-                        <div>Панель заполнения</div>
-                        <div>Панель критического удара</div>
-                        <p class="hero_score">150 / 150</p>
-                    </div>
+                    <div class="health_container">
+    <div class="health_bar_background">
+        <div class="health_bar_fill" id="hero_health_bar"></div>
+        <span class="health_text" id="hero_health_text">100 / 100</span>
+    </div>
+</div>
+
                 </div>
 
-                <div id="battle_block">battle_block</div>
+                <div class="battle_block">
+
+                    <p class="battle_block_instr">Choose two defense zones and one attack zone</p>
+
+                    <div class="zones_container">
+
+                        <div class="defence_block">
+                            <p class="zones_title">Defence Zones</p>
+                            <div class="defence_zones">
+                                <div class="zone_option">
+                                    <input type="checkbox" id="defence_head" name="defence_zone" value="head">
+                                    <label for="defence_head" class="zone_label">Head</label>
+                                </div>
+                                <div class="zone_option">
+                                    <input type="checkbox" id="defence_body" name="defence_zone" value="body">
+                                    <label for="defence_body" class="zone_label">Body</label>
+                                </div>
+                                <div class="zone_option">
+                                    <input type="checkbox" id="defence_hands" name="defence_zone" value="hands">
+                                    <label for="defence_hands" class="zone_label">Hands</label>
+                                </div>
+                                <div class="zone_option">
+                                    <input type="checkbox" id="defence_belly" name="defence_zone" value="belly">
+                                    <label for="defence_belly" class="zone_label">Belly</label>
+                                </div>
+                                <div class="zone_option">
+                                    <input type="checkbox" id="defence_legs" name="defence_zone" value="legs">
+                                    <label for="defence_legs" class="zone_label">Legs</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="attack_block">
+                            <p class="zones_title">Attack Zones</p>
+                            <div class="attack_zones">
+                                <div class="zone_option">
+                                    <input type="checkbox" id="attack_head" name="attack_zone" value="head">
+                                    <label for="attack_head" class="zone_label">Head</label>
+                                </div>
+                                <div class="zone_option">
+                                    <input type="checkbox" id="attack_body" name="attack_zone" value="body">
+                                    <label for="attack_body" class="zone_label">Body</label>
+                                </div>
+                                <div class="zone_option">
+                                    <input type="checkbox" id="attack_hands" name="attack_zone" value="hands">
+                                    <label for="attack_hands" class="zone_label">Hands</label>
+                                </div>
+                                <div class="zone_option">
+                                    <input type="checkbox" id="attack_belly" name="attack_zone" value="belly">
+                                    <label for="attack_belly" class="zone_label">Belly</label>
+                                </div>
+                                <div class="zone_option">
+                                    <input type="checkbox" id="attack_legs" name="attack_zone" value="legs">
+                                    <label for="attack_legs" class="zone_label">Legs</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    
+                    <button class="attack_btn" id="attack_button" disabled>Attack!</button>
+
+                </div>
 
                 <div id="boss">
 
-                      <h2 id="boss_name">Loading boss...</h2>
-                      <div class="boss_view">
-                          <img class="boss_pic" src="assets/boss/Shark.png" alt="boss" />
-                           <div class="boss_tooltip" id="boss_tooltip"></div>
-                      </div>
-
-                    <div class="boss_stamina">
-                        <div>Панель заполнения</div>
-                        <div>Панель критического удара</div>
-                        <p class="boss_score">150 / 150</p>
+                    <h2 id="boss_name">Loading boss...</h2>
+                    <div class="boss_view">
+                        <img class="boss_pic" src="assets/boss/Shark.png" alt="boss" />
+                        <div class="boss_tooltip" id="boss_tooltip"></div>
                     </div>
+
+                   <div class="health_container">
+    <div class="health_bar_background">
+        <div class="health_bar_fill" id="boss_health_bar"></div>
+        <span class="health_text" id="boss_health_text">100 / 100</span>
+    </div>
+</div>
+
+
+
                 </div>
             </div>
 
-            <div class="battle_log">
-                егег attacked Snow troll to Legs but Snow troll was able to protect his Legs.
-                Snow troll attacked егег to Legs and deal 20 damage.
-                ЩЩЩЩ attacked Snow troll to Legs but Snow troll was able to protect his Legs.
-                Snow troll attacked ЩЩЩЩ to Head ЩЩЩЩ tried to block but Snow troll was very lucky and crit his oppenent
-                for 30 damage.
-                ЩЩЩЩ attacked Spacemarine to Neck and deal 10 damage.
-                Spacemarine attacked ЩЩЩЩ to Body but ЩЩЩЩ was able to protect his Body.
-                ЩЩЩЩ attacked Spacemarine to Belly and deal 10 damage.
-                Spacemarine attacked ЩЩЩЩ to Body but ЩЩЩЩ was able to protect his Body.
+            <div class="battle_log" id="battle_log"></div>
+              
             </div>
 
-
-
-
-
         </div>
+
+
     </section>
 
     <script src="battle.js"></script>

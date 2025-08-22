@@ -39,7 +39,7 @@ body {
 header,
 section,
 footer {
-  padding-top: 75px;
+  padding-top: 30px;
   background-color: var(--bg-white);
   max-width: 1024px;
   margin: 0px auto;
@@ -96,7 +96,7 @@ header .wrapper_container {
   gap: 20px;
 }
 
-#battle-scene {
+#battle_scene {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid var(--font-main);
@@ -162,7 +162,7 @@ header .wrapper_container {
   width: 250px;
   max-height: 300px;
   overflow-y: auto;
-  background-color: rgba(0, 0, 0, 0.9); /* Полупрозрачный фон */
+  background-color: rgba(0, 0, 0, 0.9);
   color: #fff;
   text-align: left;
   border-radius: 8px;
@@ -205,6 +205,183 @@ header .wrapper_container {
   opacity: 1;
 }
 
+.health_container {
+  width: 300px;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.health_bar_background {
+    position: relative;
+    width: 100%;
+    height: 20px;
+    background-color: #dfd9d9;
+    overflow: hidden;
+}
+
+.health_bar_fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: var(--font-damage);
+    transition: width 0.3s ease;
+
+}
+
+.health_text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.battle_block {
+  display: flex;
+  flex-direction: column;
+  margin-top: 55px;
+  align-items: center;
+}
+
+.battle_block_instr {
+  font-size: 19px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.zones_container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 800px;
+  margin: 15px auto 0 auto;
+}
+
+.defence_block,
+.attack_block {
+  padding: 20px;
+}
+
+.defence_zones,
+.attack_zones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.zones_title{
+  font-weight: 600;
+}
+
+.zone_option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.zone_label {
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--font-hero);
+  font-weight: 500;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
+.attack_btn {
+  width: 330px;
+  padding: 10px;
+  margin: 3px auto;
+  background-color: var(--font-damage);
+  color: var(--bg-white);
+  border: none;
+  font-size: var(--font-common);
+  cursor: pointer;
+  transition: 0.3s;
+  display: block;
+}
+
+.attack_btn:disabled {
+  cursor: not-allowed;
+  transform: none;
+}
+
+.attack_btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(231, 76, 60, 0.6);
+}
+
+.attack_btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+
+
 .battle_log {
   margin-top: 15px;
+ padding: 20px;
+    background: var(--bg-white);
+    border-radius: 10px;
+    max-height: 1000px;
+    overflow-y: auto;
+    font-size: 14px;
+    color: var(--font-main);
+    font-size: 18px;
+}
+
+.log_entry {
+    margin-bottom: 8px;
+    padding: 5px;
+ }
+
+.log_round,
+.log_battle_start  {
+    color: var(--font-main) !important; /* Коричневый */
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.log_hero {
+    color: var(--font-hero) !important; /* Синий */
+    font-weight: bold;
+}
+
+.log_boss {
+    color: var(--font-boss)!important; /* Оранжевый */
+    font-weight: bold;
+}
+
+.log_protected {
+    color: var(--font-win) !important; /* Зеленый */
+    font-weight: bold;
+}
+
+.log_hit {
+    color: var(--font-damage) !important; /* Красный */
+    font-weight: bold;
+}
+
+.log_turn {
+    color: #4c12a1 !important; /* Фиолетовый */
+    font-weight: bold;
+}
+
+.log_results {
+    color: #FFEB3B !important; /* Желтый */
+    font-weight: bold;
+}
+
+.log_spacer {
+    height: 15px;
+    border: none;
+    margin: 10px 0;
 }

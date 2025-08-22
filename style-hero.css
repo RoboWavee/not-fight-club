@@ -39,7 +39,7 @@ body {
 header,
 section,
 footer {
-  padding-top: 75px;
+  padding-top: 30px;
   background-color: var(--bg-white);
   max-width: 1024px;
   margin: 0px auto;

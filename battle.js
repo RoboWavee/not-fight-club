@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const heroNameElement = document.getElementById('hero_name');
     heroNameElement.textContent = savedName;
-
    
     const hero = savedHero ? JSON.parse(savedHero) : defaultHero;
     const heroPicElement = document.querySelector('.hero_view img');
@@ -126,7 +125,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
    attackButton.addEventListener('click', function() {
-    // Получаем выбранные зоны защиты
     const selectedDefence = [];
     defenceCheckboxes.forEach(checkbox => {
         if (checkbox.checked) {
@@ -134,18 +132,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     
-    // Получаем выбранную зону атаки
     let selectedAttack = null;
     attackCheckboxes.forEach(checkbox => {
         if (checkbox.checked) {
             selectedAttack = checkbox.value;
         }
     });
-        
-
+       
      executeBattle(selectedAttack, selectedDefence);
-        
-    
+     
         resetSelection();
     });
 
@@ -157,27 +152,38 @@ document.addEventListener('DOMContentLoaded', function () {
          attackCheckboxes.forEach(checkbox => {
             checkbox.checked = false;
         });
-        
-        
+                
         defenceSelected = 0;
         attackSelected = false;
-        
-       
+               
         updateAttackButton();
     }
-
     
     updateAttackButton();
-
-
-
 
 let heroHealth = 100;
 let bossHealth = 100;
 let currentRound = 1;
 const currentBoss = JSON.parse(localStorage.getItem('currentBoss'));
+let heroCriticalPoints = 0;
+let bossCriticalPoints = 0;
+const MAX_CRITICAL_POINTS = 5;
+const CRITICAL_DAMAGE = 20;
 
-// Обновление полос здоровья
+updateCriticalBars();
+
+function updateCriticalBars() {
+  
+    const heroCriticalPercentage = (heroCriticalPoints / MAX_CRITICAL_POINTS) * 100;
+    document.getElementById('hero_critical_bar').style.width = `${heroCriticalPercentage}%`;
+    document.getElementById('hero_critical_text').textContent = `${heroCriticalPoints} / ${MAX_CRITICAL_POINTS}`;
+    
+   
+    const bossCriticalPercentage = (bossCriticalPoints / MAX_CRITICAL_POINTS) * 100;
+    document.getElementById('boss_critical_bar').style.width = `${bossCriticalPercentage}%`;
+    document.getElementById('boss_critical_text').textContent = `${bossCriticalPoints} / ${MAX_CRITICAL_POINTS}`;
+}
+
 function updateHealthBars() {
     const heroPercentage = (heroHealth / 100) * 100;
     const bossPercentage = (bossHealth / currentBoss.health) * 100;
@@ -189,7 +195,6 @@ function updateHealthBars() {
     document.getElementById('boss_health_text').textContent = `${bossHealth} / ${currentBoss.health}`;
 }
 
-// Функция для получения случайных зон
 function getRandomZones(count, availableZones) {
     const zones = [...availableZones];
     const selected = [];
@@ -204,19 +209,17 @@ function getRandomZones(count, availableZones) {
     return selected;
 }
 
-// Все возможные зоны
 const allZones = ['head', 'body', 'hands', 'belly', 'legs'];
 
-// Функция добавления записи в лог
+// ADD BATTLE LOG
+
 function addToLog(message, className = '') {
     const logContainer = document.getElementById('battle_log');
     const logEntry = document.createElement('div');
     logEntry.className = `log_entry ${className}`;
     
-    // Применяем стилизацию к тексту
     let formattedMessage = message;
     
-    // Стилизация для разных типов сообщений
     if (message.includes('=== BATTLE STARTED ===')) {
         formattedMessage = `<span class="log_battle_start">${message}</span>`;
         className = 'log_battle_start';
@@ -234,7 +237,7 @@ function addToLog(message, className = '') {
         className = 'log_results';
     }
     else {
-        // Замена имен на стилизованные версии
+   
         formattedMessage = formattedMessage
             .replace(new RegExp(savedName, 'g'), `<span class="log_hero">${savedName}</span>`)
             .replace(new RegExp(currentBoss.name, 'g'), `<span class="log_boss">${currentBoss.name}</span>`)
@@ -244,8 +247,7 @@ function addToLog(message, className = '') {
     
     logEntry.innerHTML = formattedMessage;
     
-    // Добавляем пробел между раундами
-    if (message.includes('RESULTS ===')) {
+      if (message.includes('RESULTS ===')) {
         const spacer = document.createElement('div');
         spacer.className = 'log_spacer';
         logContainer.appendChild(spacer);
@@ -255,17 +257,14 @@ function addToLog(message, className = '') {
     logContainer.scrollTop = logContainer.scrollHeight;
 }
 
-// Основная функция боя
+
 function executeBattle(playerAttack, playerDefence) {
-    // Ход босса
     const bossAttackZones = getRandomZones(currentBoss.attack, allZones);
     const bossDefenceZones = getRandomZones(currentBoss.defence, allZones);
 
-    // Заголовок раунда
     addToLog(`=== ROUND ${currentRound} ===`, 'log_round');
     addToLog(`=== ${currentBoss.name.toUpperCase()} TURN ===`, 'log_turn');
     
-    // Атака босса
     bossAttackZones.forEach(zone => {
         if (playerDefence.includes(zone)) {
             addToLog(`${currentBoss.name} attacked ${savedName} in ${zone.toUpperCase()} - THIS ZONE WAS PROTECTED! DAMAGE = 0`);
@@ -275,15 +274,12 @@ function executeBattle(playerAttack, playerDefence) {
         }
     });
 
-    // Защита босса
-    if (bossDefenceZones.length > 0) {
+     if (bossDefenceZones.length > 0) {
         addToLog(`${currentBoss.name} is defending: ${bossDefenceZones.map(z => z.toUpperCase()).join(', ')}`);
     }
 
-    // Ход игрока
     addToLog(`=== ${savedName.toUpperCase()} TURN ===`, 'log_turn');
     
-    // Атака игрока
     if (playerAttack) {
         if (bossDefenceZones.includes(playerAttack)) {
             addToLog(`${savedName} attacked ${currentBoss.name} in ${playerAttack.toUpperCase()} - THIS ZONE WAS PROTECTED! DAMAGE = 0`);
@@ -295,29 +291,23 @@ function executeBattle(playerAttack, playerDefence) {
         addToLog(`${savedName} did not select an attack zone!`);
     }
 
-    // Защита игрока
     if (playerDefence.length > 0) {
         addToLog(`${savedName} is defending: ${playerDefence.map(z => z.toUpperCase()).join(', ')}`);
     } else {
         addToLog(`${savedName} is not defending any zones!`);
     }
 
-    // Итоги раунда
     addToLog(`=== ROUND ${currentRound} RESULTS ===`, 'log_results');
     addToLog(`${savedName} Health: ${heroHealth}/100`);
     addToLog(`${currentBoss.name} Health: ${bossHealth}/${currentBoss.health}`);
     
-    // Добавляем пустую строку между раундами
     addToLog('', 'log_spacer');
 
-    // Увеличиваем счетчик раундов
     currentRound++;
-
-    // Обновляем здоровье
+  
     updateHealthBars();
 
-    // Проверка конца игры
-    if (heroHealth <= 0 || bossHealth <= 0) {
+      if (heroHealth <= 0 || bossHealth <= 0) {
         setTimeout(() => {
             addToLog('=== BATTLE ENDED ===', 'log_battle_start');
             if (heroHealth <= 0) {
@@ -330,28 +320,55 @@ function executeBattle(playerAttack, playerDefence) {
             resetGame();
         }, 1000);
     }
+
+    heroCriticalPoints = Math.min(heroCriticalPoints + 1, MAX_CRITICAL_POINTS);
+    bossCriticalPoints = Math.min(bossCriticalPoints + 1, MAX_CRITICAL_POINTS);
+    
+    let heroCriticalUsed = false;
+    if (heroCriticalPoints >= MAX_CRITICAL_POINTS && playerAttack) {
+        if (!bossDefenceZones.includes(playerAttack)) {
+            bossHealth = Math.max(0, bossHealth - CRITICAL_DAMAGE);
+            addToLog(`${savedName} used CRITICAL HIT on ${currentBoss.name} in ${playerAttack.toUpperCase()} - MASSIVE DAMAGE! DAMAGE = ${CRITICAL_DAMAGE}`, 'log_critical');
+            heroCriticalPoints = 0;
+            heroCriticalUsed = true;
+        }
+    }
+    
+    let bossCriticalUsed = false;
+    if (bossCriticalPoints >= MAX_CRITICAL_POINTS) {
+        bossAttackZones.forEach(zone => {
+            if (!playerDefence.includes(zone) && !bossCriticalUsed) {
+                heroHealth = Math.max(0, heroHealth - CRITICAL_DAMAGE);
+                addToLog(`${currentBoss.name} used CRITICAL HIT on ${savedName} in ${zone.toUpperCase()} - MASSIVE DAMAGE! DAMAGE = ${CRITICAL_DAMAGE}`, 'log_critical');
+                bossCriticalPoints = 0;
+                bossCriticalUsed = true;
+            }
+        });
+    }
+
+    updateCriticalBars();
+
 }
 
-// Функция сброса игры
+
 function resetGame() {
-    heroHealth = 100;
+heroHealth = 100;
     bossHealth = currentBoss.health;
+    heroCriticalPoints = 0;
+    bossCriticalPoints = 0;
     currentRound = 1;
     updateHealthBars();
+    updateCriticalBars(); // Добавьте эту строку
     document.querySelector('.battle_log').innerHTML = '';
     addToLog('=== NEW BATTLE STARTED ===');
     addToLog(`${savedName} vs ${currentBoss.name}`);
     addToLog('');
 }
 
-
-// Инициализация здоровья и начало боя
 updateHealthBars();
 addToLog('=== BATTLE STARTED ===', 'log_battle_start');
 addToLog(`${savedName} vs ${currentBoss.name}`);
 addToLog('', 'log_spacer');
-
-
 
 
 });
